@@ -6,72 +6,7 @@
     <title>home</title>
 </head>
 <body>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
-    <h6>humayoun</h6>
+    <h6>home page per m kaam kronga</h6>
     
 </body>
 </html>
