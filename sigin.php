@@ -48,7 +48,7 @@
                   </div>
 
                  
-                  <center><p class="mt-2">Dont have an account ? <a href="signup.php"><b>SignIn</b></a></p></center>
+                  <center><p class="mt-2">Dont have an account ? <a href="signup.php"><b>SignUp</b></a></p></center>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" name="submit" class="btn btn-primary btn-sm">Login</button>
