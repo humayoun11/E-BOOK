@@ -9,7 +9,6 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="./plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
 </head>
@@ -328,7 +327,8 @@
                     </li>
                 </ul>
             </div>
-        </div>        <!--**********************************
+        </div>
+        <!--**********************************
             Sidebar end
         ***********************************-->
 
@@ -348,55 +348,111 @@
             <!-- row -->
 
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Table</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
-                                            <tr>
-                                                <th>User ID</th>
-                                                <th>Username</th>
-                                                <th>Useremail</th>
-                                                <th>Userpassword</th>
-                                                <th>Usercontact</th>
-                                                <th>UserRole</th>
-                                                <th>UserImg</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Huzaifa</td>
-                                                <td>Huzaifa@gmail.com</td>
-                                                <td>12345678</td>
-                                                <td>03162674323</td>
-                                                <td>admin</td>
-                                                <td></td>
+                                <div class="form-validation">
+                                    <form class="form-valide" action="#" method="post">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Book Category <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-username"
+                                                    name="val-username" placeholder="Enter a category name..">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Email <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-email" name="val-email"
+                                                    placeholder="Your valid email..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Password <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="val-password"
+                                                    name="val-password" placeholder="Choose a safe one..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label"
+                                                for="val-confirm-password">Contact<span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="val-confirm-password"
+                                                    name="val-confirm-password" placeholder="..and confirm it!">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm
+                                                Password <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="val-confirm-password"
+                                                    name="val-confirm-password" placeholder="..and confirm it!">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-suggestions">Contact
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="contact" class="form-control" id="val-confirm-password"
+                                                    name="val-confirm-password" placeholder="..and confirm it!">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skill">Role <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="val-skill" name="val-skill">
+                                                    <option value="">Please select</option>
+                                                    <option value="php">HTML</option>
+                                                    <option value="css">CSS</option>
+                                                    <option value="javascript">JavaScript</option>
+                                                    <option value="angular">Angular</option>
+                                                    <option value="angular">React</option>
 
-                                                <td><button type="button"
-                                                        class="btn mb-1 btn-flat btn-outline-success">Success</button><button
-                                                        type="button"
-                                                        class="btn mb-1 btn-flat btn-outline-danger m-2">Delete</button>
-                                                </td>
-                                            </tr>
-
-
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency">UserImg <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="file" class="form-control" id="val-currency">
+                                                
+                                            </div>
+                                       
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label"><a href="#">Terms &amp;
+                                                    Conditions</a> <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <label class="css-control css-control-primary css-checkbox"
+                                                    for="val-terms">
+                                                    <input type="checkbox" class="css-control-input" id="val-terms"
+                                                        name="val-terms" value="1"> <span
+                                                        class="css-control-indicator"></span> I agree to the
+                                                    terms</label>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn mb-1 btn-rounded btn-primary">Add Book Category</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -436,9 +492,8 @@
     <script src="js/gleek.js"></script>
     <script src="js/styleSwitcher.js"></script>
 
-    <script src="./plugins/tables/js/jquery.dataTables.min.js"></script>
-    <script src="./plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
-    <script src="./plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+    <script src="./plugins/validation/jquery.validate.min.js"></script>
+    <script src="./plugins/validation/jquery.validate-init.js"></script>
 
 </body>
 
