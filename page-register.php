@@ -1,3 +1,9 @@
+<?php
+require 'connectdb.php';
+?>
+
+
+
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -43,17 +49,36 @@
                                 
                                     <a class="text-center" href="index.php"> <h4>Rosella</h4></a>
         
-                                <form class="mt-5 mb-5 login-input">
+                                <form class="mt-5 mb-5 login-input" action="page-register-action.php" method="POST">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Name" required>
+                                        <input type="text" class="form-control"  placeholder="User Name" name="signupname" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control"  placeholder="Email" required>
+                                        <input type="email" class="form-control"  placeholder="Email" name="signupemail" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
+                                        <input type="password" class="form-control" placeholder="Password" name="signuppassword" required>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign in</button>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="Contact" name="signupcontact" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <select name="signuprole" required>
+      <?php
+        $queryr= "select * from web_roles";
+        $web_roles = mysqli_query($connectiondb,$queryr);
+        if($web_roles){
+          while( $row = mysqli_fetch_assoc($web_roles)){
+              echo '<option value='.$row["role_id"].'>'.$row["role_name"].'</option>';
+          }
+       }
+        ?>
+      </select><br><br>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control">
+                                    </div>
+                                    <button class="btn login-form__btn submit w-100" name="signupsubmit">Sign in</button>
                                 </form>
                                     <p class="mt-5 login-form__footer">Have account <a href="page-login.php" class="text-primary">Sign Up </a> now</p>
                                     </p>

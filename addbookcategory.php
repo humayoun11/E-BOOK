@@ -1,3 +1,13 @@
+<?php
+session_start();
+require 'connectdb.php';
+
+if ($_SESSION["adminemail"]== null) {
+    header("location: sigin.php");
+}
+else { ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -236,7 +246,7 @@
                                             <a href="page-lock.php"><i class="icon-lock"></i> <span>Lock
                                                     Screen</span></a>
                                         </li>
-                                        <li><a href="page-login.php"><i class="icon-key"></i> <span>Logout</span></a>
+                                        <li><a href="logoutaction.php"><i class="icon-key"></i> <span>Logout</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -259,33 +269,48 @@
                     <li class="nav-label">Dashboard</li>
                     
 
-                    <li class="nav-label">Author and Roles</li>
+                    <li class="nav-label">Roles</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Web Role</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="Add User Role.php">Add User Role</a></li>
-                            <li><a href="Add User List Role.php">Add User List Role</a></li>
+                            <li><a href="addrole.php">Add Role</a></li>
+                            <li><a href="displayrole.php">List Role</a></li>
 
                         </ul>
                     </li>
-                    <!-- <li>
+                    <li class="nav-label">Author</li>
+                    <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
+                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">Author</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.php">Profile</a></li>
-                            <li><a href="./app-calender.php">Calender</a></li>
+                            <li><a href="addauthor.php">Add Author</a></li>
+                            <li><a href="pendingauthor.php">Pending Author List</a></li>
+                            <li><a href="approvedauthor.php">Approved Author List</a></li>
+
                         </ul>
-                    </li> -->
+                    </li>
+                    <li class="nav-label">Users</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">User</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <!-- <li><a href="Add User Role.php">Add User</a></li> -->
+                            <li><a href="userdisplay.php"> User List</a></li>
+
+                        </ul>
+                    </li>
+                    
                     <li class="nav-label">Books & Categories</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Books</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="addbooks.php">Add Book</a></li>
+                            
                             <li><a href="booklist.php">List Book</a></li>
 
                         </ul>
@@ -296,32 +321,11 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="addbookcategory.php">Add Book Category</a></li>
-                            <li><a href="showWebRole.php">List Book Category</a></li>
+                            <li><a href="displaycategory.php">List Book Category</a></li>
 
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.php">Profile</a></li>
-                            <li><a href="./app-calender.php">Calender</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.php">Flot</a></li>
-                            <li><a href="./chart-morris.php">Morris</a></li>
-                            <li><a href="./chart-chartjs.php">Chartjs</a></li>
-                            <li><a href="./chart-chartist.php">Chartist</a></li>
-                            <li><a href="./chart-sparkline.php">Sparkline</a></li>
-                            <li><a href="./chart-peity.php">Peity</a></li>
-                        </ul>
-                    </li> -->
+                    
                 
                         </ul>
                     </li>
@@ -353,14 +357,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="#" method="post">
+                                    <form class="form-valide" action="addbookcategoryaction.php" method="POST">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Book Category <span
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-username"
-                                                    name="val-username" placeholder="Enter a category name..">
+                                                    name="categoryname" placeholder="Enter a category name..">
                                             </div>
                                         </div>
                                         <!-- <div class="form-group row">
@@ -449,7 +453,7 @@
                                         </div> -->
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" class="btn mb-1 btn-rounded btn-primary">Add Book Category</button>
+                                                <button type="submit" name="addbook" class="btn mb-1 btn-rounded btn-primary">Add Book Category</button>
                                             </div>
                                         </div>
                                     </form>
@@ -498,3 +502,7 @@
 </body>
 
 </html>
+
+<?php
+}
+?>

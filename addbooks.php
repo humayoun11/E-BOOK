@@ -219,7 +219,7 @@
                                         <li>
                                             <a href="page-lock.php"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                         </li>
-                                        <li><a href="page-login.php"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><a href="logoutaction.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -335,7 +335,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="#" method="post">
+                                    <form class="form-valide" action="addbookaction.php" method="POST">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Book Name <span class="text-danger">*</span>
                                             </label>

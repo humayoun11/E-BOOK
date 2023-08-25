@@ -1,3 +1,8 @@
+<?php
+require 'connectdb.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,28 +33,28 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-2">Sign up</p>
 
-                <form class="mx-1 mx-md-4" method="POST" action="signupAction.php" enctype="multipart/form-data">
+                <form class="mx-1 mx-md-4" method="POST" action="signupaction.php" enctype="multipart/form-data">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">Your Name</label>
-                      <input type="text" name="name" class="form-control" required />
+                      <input type="text" name="signupname" class="form-control" required />
                     </div>
                   </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
+                  <!-- <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">Your last Name</label>
                       <input type="text" name="lname" class="form-control" required/>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label>
-                      <input type="email" name="email" class="form-control" required/>
+                      <input type="email" name="signupemail" class="form-control" required/>
                     </div>
                   </div>
 
@@ -57,14 +62,14 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4c">Password</label>
-                      <input type="password" name="password" class="form-control" required/>
+                      <input type="password" name="signuppassword" class="form-control" required/>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4c">Contact #</label>
-                      <input type="number" name="tele" class="form-control" required />
+                      <input type="number" name="signupcontact" class="form-control" required />
                     </div>
                   </div>
 
@@ -72,15 +77,31 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Your Picture</label>
-                      <input type="file" name="img" class="form-control" required/>
+                      <input type="file" name="signupimg" class="form-control" />
                     </div>
                   </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                  <label class="form-label" for="form3Example4cd">Your Role</label><br><br>
+                  <select name="signuprole" required>
+      <?php
+        $queryr= "select * from web_roles";
+        $roledata = mysqli_query($connectiondb,$queryr);
+        if($roledata){
+          while( $row = mysqli_fetch_assoc($roledata)){
+              echo '<option value='.$row["role_id"].'>'.$row["role_name"].'</option>';
+          }
+       }
+        ?>
+      </select><br><br>
+
+                  </div>
+                  
 
 
 
                   <center><p class="mt-2">have an account ? <a href="sigin.php"><b>SignIn</b></a></p></center>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="submit" name="submit" class="btn btn-primary btn-sm">Register</button>
+                      <button type="submit" name="signupsubmit" class="btn btn-primary btn-sm">Register</button>
                       <br>
                   </div>
 

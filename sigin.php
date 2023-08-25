@@ -26,7 +26,7 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
 
                 <form class="mx-1 mx-md-4 " action="siginAction.php" method="POST">
 
@@ -51,7 +51,7 @@
                   <center><p class="mt-2">Dont have an account ? <a href="signup.php"><b>SignUp</b></a></p></center>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" name="submit" class="btn btn-primary btn-sm">Login</button>
+                    <button type="submit" name="signinsubmit" class="btn btn-primary btn-sm">Signin</button>
                   </div>
 
                 </form>

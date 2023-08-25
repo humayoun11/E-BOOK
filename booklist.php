@@ -1,3 +1,18 @@
+<?php
+require 'connectdb.php';
+$query = 'select * from books_info';
+$getbookinfo= mysqli_query($connectiondb,$query);
+
+session_start();
+require 'connectdb.php';
+
+if ($_SESSION["adminemail"]== null) {
+    header("location: sigin.php");
+}
+else {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,7 +252,7 @@
                                             <a href="page-lock.php"><i class="icon-lock"></i> <span>Lock
                                                     Screen</span></a>
                                         </li>
-                                        <li><a href="page-login.php"><i class="icon-key"></i> <span>Logout</span></a>
+                                        <li><a href="logoutaction.php"><i class="icon-key"></i> <span>Logout</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -260,33 +275,48 @@
                     <li class="nav-label">Dashboard</li>
                     
 
-                    <li class="nav-label">Author and Roles</li>
+                    <li class="nav-label">Roles</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Web Role</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="Add User Role.php">Add User Role</a></li>
-                            <li><a href="Add User List Role.php">Add User List Role</a></li>
+                            <li><a href="addrole.php">Add Role</a></li>
+                            <li><a href="displayrole.php">List Role</a></li>
 
                         </ul>
                     </li>
-                    <!-- <li>
+                    <li class="nav-label">Author</li>
+                    <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
+                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">Author</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.php">Profile</a></li>
-                            <li><a href="./app-calender.php">Calender</a></li>
+                            <li><a href="addauthor.php">Add Author</a></li>
+                            <li><a href="pendingauthor.php">Pending Author List</a></li>
+                            <li><a href="approvedauthor.php">Approved Author List</a></li>
+
                         </ul>
-                    </li> -->
+                    </li>
+                    <li class="nav-label">Users</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">User</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <!-- <li><a href="Add User Role.php">Add User</a></li> -->
+                            <li><a href="userdisplay.php"> User List</a></li>
+
+                        </ul>
+                    </li>
+                    
                     <li class="nav-label">Books & Categories</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Books</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="addbooks.php">Add Book</a></li>
+                            
                             <li><a href="booklist.php">List Book</a></li>
 
                         </ul>
@@ -297,32 +327,11 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="addbookcategory.php">Add Book Category</a></li>
-                            <li><a href="showWebRole.php">List Book Category</a></li>
+                            <li><a href="displaycategory.php">List Book Category</a></li>
 
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.php">Profile</a></li>
-                            <li><a href="./app-calender.php">Calender</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.php">Flot</a></li>
-                            <li><a href="./chart-morris.php">Morris</a></li>
-                            <li><a href="./chart-chartjs.php">Chartjs</a></li>
-                            <li><a href="./chart-chartist.php">Chartist</a></li>
-                            <li><a href="./chart-sparkline.php">Sparkline</a></li>
-                            <li><a href="./chart-peity.php">Peity</a></li>
-                        </ul>
-                    </li> -->
+                    
                 
                         </ul>
                     </li>
@@ -358,45 +367,38 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>User ID</th>
-                                                <th>Username</th>
-                                                <th>Useremail</th>
-                                                <th>Userpassword</th>
-                                                <th>Usercontact</th>
-                                                <th>UserRole</th>
-                                                <th>UserImg</th>
-                                                <th>Action</th>
+                                                <th> ID</th>
+                                                <th>Price</th>
+                                                <th>Name</th>
+                                                <th>Author</th>
+                                                <th>Category</th>
+                                                <th>Image</th>
+                                                <th>Release Date</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Huzaifa</td>
-                                                <td>Huzaifa@gmail.com</td>
-                                                <td>12345678</td>
-                                                <td>03162674323</td>
-                                                <td>admin</td>
-                                                <td></td>
-
-                                                <td><button type="button"
-                                                        class="btn mb-1 btn-flat btn-outline-success">Success</button><button
-                                                        type="button"
-                                                        class="btn mb-1 btn-flat btn-outline-danger m-2">Delete</button>
-                                                </td>
-                                            </tr>
-
-
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
+    <?php while($row= mysqli_fetch_assoc($getbookinfo)){;?> 
+         
+      
+    <tr>
+      <th scope="row"><?php echo $row['book_id'] ?></th>
+      <td><?php echo $row['book_price'] ?></td>
+      <td><?php echo $row['book_name'] ?></td>
+      <td><?php echo $row['book_author'] ?></td>
+      <td><?php echo $row['book_types'] ?></td>
+      <td><?php echo $row['book_img'] ?></td>
+      <td><?php echo $row['book_release__date'] ?></td>
+      <td><button class="btn btn-danger" name="deletauthor"><a href="bookdeleteaction.php?acceptId=<?php echo $row["book_id"]?> "class="text-light"> Delete </a></button></td>
+      
+      <!-- <td><button class="btn btn-primary" name="updateproduct"><a href="authorapprovedaction.php?acceptId=<?php echo $row["author_id"]?> "class="text-light"> Update </a></button></td> -->
+      
+    </tr>
+  
+    <?php } ?>
+    <!--  -->
+  </tbody>
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -444,3 +446,5 @@
 </body>
 
 </html>
+<?php
+}?>
